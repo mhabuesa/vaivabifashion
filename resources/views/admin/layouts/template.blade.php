@@ -112,11 +112,18 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
-    <li class="menu-item active open">
+    <li class="menu-item
+{{$url == '/admin/addcategory'?'active open':''}}
+{{$url == '/admin/allcategory'?'active open':''}}
+{{$url == '/admin/addsubcategory'?'active open':''}}
+{{$url == '/admin/allsubcategory'?'active open':''}}
+{{$url == '/admin/addsubsubcategory'?'active open':''}}
+{{$url == '/admin/allsubsubcategory'?'active open':''}}
+    ">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons ti ti-smart-home"></i>
-        <div data-i18n="Dashboards">Dashboards</div>
-        <div class="badge bg-primary rounded-pill ms-auto">5</div>
+        <div data-i18n="Category">Category</div>
+        <div class="badge bg-primary rounded-pill ms-auto"></div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item {{$url == '/admin/addcategory'?'active':''}}">
@@ -139,9 +146,55 @@
               <div data-i18n="All SubCategory">All SubCategory</div>
             </a>
         </li>
+        <li class="menu-item {{$url == '/admin/addsubsubcategory'?'active':''}}">
+            <a href="{{ route('addsubsubcategory') }}" class="menu-link">
+              <div data-i18n="Add SubSubCategory">Add SubSubCategory</div>
+            </a>
+        </li>
+        <li class="menu-item {{$url == '/admin/allsubsubcategory'?'active':''}}">
+            <a href="{{ route('allsubsubcategory') }}" class="menu-link">
+              <div data-i18n="All SubSubCategory">All SubSubCategory</div>
+            </a>
+        </li>
 
       </ul>
     </li>
+
+    <li class="menu-item active
+{{$url == '/admin/product-reviews'?'active open':''}}
+{{$url == '/admin/colors'?'active open':''}}
+{{$url == '/admin/attribute-sets'?'active open':''}}
+{{$url == '/admin/attribute-values'?'active open':''}}
+    ">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons ti ti-smart-home"></i>
+          <div data-i18n="Products">Products</div>
+          <div class="badge bg-primary rounded-pill ms-auto"></div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item {{$url == '/admin/product-reviews'?'active':''}}">
+            <a href="{{ route('productreviews') }}" class="menu-link">
+              <div data-i18n="Product Reviews">Product Reviews</div>
+            </a>
+          </li>
+          <li class="menu-item {{$url == '/admin/colors'?'active':''}}">
+              <a href="{{ route('colors') }}" class="menu-link">
+                <div data-i18n="Colors">Colors</div>
+              </a>
+          </li>
+          <li class="menu-item {{$url == '/admin/attribute-sets'?'active':''}}">
+              <a href="{{ route('attributesets') }}" class="menu-link">
+                <div data-i18n="Attribute Sets">Attribute Sets</div>
+              </a>
+          </li>
+          <li class="menu-item {{$url == '/admin/attribute-values'?'active':''}}">
+              <a href="{{ route('attributevalues') }}" class="menu-link">
+                <div data-i18n="Attribute Values">Attribute Values</div>
+              </a>
+          </li>
+
+        </ul>
+      </li>
 
     <!-- Layouts -->
     <li class="menu-item">

@@ -9,27 +9,32 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Category Name</th>
                         <th>Sub Category Name</th>
-                        <th>Sub Category Product Count</th>
+                        <th>Slug</th>
+                        <th>Category Name</th>
+                        <th>SubSubCategory Count</th>
+                        <th>Product Count</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
+                    @foreach ($subcategories as $subcategory)
+
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>{{ $subcategory->id }}</td>
+                            <td>{{ $subcategory->subcategory_name }}</td>
+                            <td>{{ $subcategory->slug }}</td>
+                            <td>{{ $subcategory->category_name }}</td>
+                            <td>{{ $subcategory->subsubcategory_count }}</td>
+                            <td>{{ $subcategory->product_count }}</td>
                             <td><a href=""><span class="badge bg-label-primary me-1">Active</span></a></td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-warning">Delete</a>
+                                <a href="{{ route('editsubcategory', $subcategory->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('deletesubcategory', $subcategory->id) }}" class="btn btn-warning">Delete</a>
                             </td>
                         </tr>
-
-
+                        @endforeach
 
                 </tbody>
             </table>
